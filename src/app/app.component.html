@@ -1,3 +1,34 @@
-<h1>
-  {{title}}
-</h1>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">DIGISOFT</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li> 
+         <button class="btn waves-effect waves-light" type="submit" name="action"  (click)="listarPedido()">LISTAR
+          <i class="material-icons right">send</i>
+          </button>
+          </li>
+        <li><a href="sass.html">CONTACTENOS</a></li>
+        <li><a href="badges.html">INICIO</a></li>
+        <li><a href="collapsible.html">SALIR</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <ul class="collection with-header" id="listaPedido" *ngFor="let servicio of pedidoList">
+        <li class="collection-header"><h4>Servicio: {{servicio.servicio}} </h4></li>
+        <li class="collection-item">
+            nombre: {{servicio.nombre}} <br>
+            apellido: {{servicio.apellido}} <br>
+            telefono: {{servicio.telefono}} <br>
+            servicio: {{servicio.servicio}} <br>
+            email: {{servicio.email}} <br>
+            direccion: {{servicio.direccion}} <br>
+        </li>
+      </ul>
+    
+    <div class="col s12 m8 l10"> <!-- Note that "m8 l9" was added -->
+      <form-digisoft>
+      </form-digisoft>
+    </div>
+
+    

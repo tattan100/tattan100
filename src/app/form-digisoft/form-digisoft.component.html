@@ -1,0 +1,111 @@
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <div class="row">
+    <form class="col s12" #formPedido="ngForm" novalidate>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="nombre"
+                 type="text"
+                 class="validate"[class.invalid]="!nombreTxt.valid"
+                  name="nombre"
+                  #nombreTxt="ngModel"
+                  [(ngModel)]="pedidocrear.nombre"
+                    required>
+          <label for="nombre"
+                 data-error="El nombre es requerido" 
+                    data-success="Ok">Nombre</label>
+        </div>
+        
+        <div class="input-field col s6">
+          <input id="apellido" 
+                type="text" 
+                class="validate"
+                 [class.invalid]="!apellidoTxt.valid"
+                  name="apellido"
+                  #apellidoTxt="ngModel"
+                  [(ngModel)]="pedidocrear.apellido"
+                    required>
+          <label for="apellido"
+                data-error="El apellido es requerido" 
+                data-success="Ok">apellido</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">phone</i>
+          <input  id="telefono" 
+                  type="text" 
+                  class="validate"
+                  [class.invalid]="!telefonoTxt.valid"
+                  name="telefono"
+                  #telefonoTxt="ngModel"
+                  [(ngModel)]="pedidocrear.telefono"
+                  required>
+          <label for="telefono"
+                 data-error="El telefono es requerido" 
+                 data-success="Ok">telefono</label>
+        </div>
+      </div>
+         
+        <label>Solicitar servicio</label>
+        <select class="browser-default"
+        id="servicio"
+          [class.invalid]="!servicioTxt.valid"
+          name="servicio"
+          #servicioTxt="ngModel"
+          [(ngModel)]="pedidocrear.servicio"
+          required>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="Mantenimiento Preventivo">Mantenimiento Preventivo</option>
+          <option value="Mantenimiento Correctivo">Mantenimiento Correctivo</option>
+          <option value="Recuperacion de Datos">Recuperacion de Datos</option>
+          <option value="Desarrollo Software">Desarrollo Software</option>
+        </select>
+             
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">credit_card</i>
+          <input id="email" 
+                 type="text"
+                 class="validate"
+                  [class.invalid]="!emailTxt.valid"
+                  name="email"
+                   #emailTxt="ngModel"
+                  [(ngModel)]="pedidocrear.email"
+                   required>
+          <label for="email"
+                 data-error="El email es requerido" 
+                 data-success="Ok">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <i class="material-icons prefix">location_on</i>
+          Direccion:
+          <div class="input-field inline">
+            <input id="direccion" 
+                    type="text" 
+                   class="validate"
+                   [class.invalid]="!direccionTxt.valid"
+                  name="direccion"
+                   #direccionTxt="ngModel"
+                  [(ngModel)]="pedidocrear.direccion"
+                   required>
+            <label for="direccion" 
+                  data-error="la direccion es requerida" 
+                  data-success="ok">Direccion</label>
+          </div>
+        </div>
+      </div>
+       <button class="btn waves-effect waves-light" 
+                  type="submit" 
+                  name="action"
+                  [disabled]="!formPedido.valid"
+                  (click)="guardarpedido()">
+            Guardar Solicitud
+            <i class="material-icons right">send</i>            
+          </button>
+     </form>
+  </div>
